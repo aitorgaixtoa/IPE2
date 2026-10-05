@@ -1,1 +1,1125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Portfolio | Estudiante DAM</title>
+
+    <style>
+
+        /* =========================
+           CONFIGURACIÓN GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0f19;
+            color: #f5f7fa;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+
+            background: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #202838;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #7c5cff;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: #aeb7c6;
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #7c5cff;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            max-width: 1100px;
+            margin: auto;
+
+            padding: 150px 25px 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 60px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hello {
+            color: #7c5cff;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 75px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #7c5cff;
+        }
+
+        .hero h2 {
+            color: #b2bccb;
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #8e99aa;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .button {
+            padding: 13px 22px;
+            border-radius: 7px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #7c5cff;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #947aff;
+            transform: translateY(-3px);
+        }
+
+        .secondary {
+            border: 1px solid #30394b;
+            color: #c5ccda;
+        }
+
+        .secondary:hover {
+            border-color: #7c5cff;
+            color: white;
+        }
+
+        /* =========================
+           TARJETA HERO
+        ========================= */
+
+        .developer-card {
+            width: 330px;
+            min-width: 330px;
+
+            background: #111722;
+
+            border: 1px solid #252e3e;
+            border-radius: 15px;
+
+            padding: 30px;
+
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .profile-circle {
+            width: 90px;
+            height: 90px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #7c5cff;
+
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .developer-card h3 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .developer-card .course {
+            text-align: center;
+            color: #7c5cff;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .card-info {
+            border-top: 1px solid #252e3e;
+            padding-top: 20px;
+        }
+
+        .card-info div {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 12px;
+
+            font-size: 13px;
+        }
+
+        .card-info span:first-child {
+            color: #7f8999;
+        }
+
+        .card-info span:last-child {
+            color: #e1e5eb;
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #7c5cff;
+            font-weight: bold;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-top: 5px;
+        }
+
+        .section-title p {
+            color: #8e99aa;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           SOBRE MÍ
+        ========================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+        }
+
+        .about-text p {
+            color: #a3adbd;
+            margin-bottom: 20px;
+        }
+
+        .about-text strong {
+            color: white;
+        }
+
+        .education {
+            background: #111722;
+
+            border: 1px solid #252e3e;
+
+            border-radius: 12px;
+
+            padding: 25px;
+        }
+
+        .education h3 {
+            margin-bottom: 20px;
+        }
+
+        .education-item {
+            border-left: 2px solid #7c5cff;
+
+            padding-left: 18px;
+
+            margin-bottom: 25px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-item h4 {
+            margin-bottom: 5px;
+        }
+
+        .education-item p {
+            color: #8e99aa;
+            font-size: 14px;
+        }
+
+        /* =========================
+           HABILIDADES
+        ========================= */
+
+        .skills {
+            background: #0f141f;
+            max-width: none;
+        }
+
+        .skills-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .skill {
+            background: #151b27;
+
+            border: 1px solid #252e3e;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: #7c5cff;
+        }
+
+        .skill-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .skill h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: #8994a5;
+            font-size: 14px;
+        }
+
+        .skill-level {
+            margin-top: 20px;
+
+            height: 5px;
+
+            background: #252d3b;
+
+            border-radius: 5px;
+
+            overflow: hidden;
+        }
+
+        .skill-level span {
+            display: block;
+            height: 100%;
+            background: #7c5cff;
+        }
+
+        /* =========================
+           PROYECTOS
+        ========================= */
+
+        .projects {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .project {
+            background: #111722;
+
+            border: 1px solid #252e3e;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+
+            border-color: #7c5cff;
+        }
+
+        .project-image {
+            height: 160px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #181f30,
+                    #262044
+                );
+
+            font-size: 45px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #8e99aa;
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #1b2231;
+
+            color: #a99bff;
+
+            padding: 5px 9px;
+
+            border-radius: 5px;
+
+            font-size: 11px;
+        }
+
+        /* =========================
+           CONTACTO
+        ========================= */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+
+            padding: 50px 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #121827,
+                    #17152a
+                );
+
+            border: 1px solid #292f40;
+
+            border-radius: 15px;
+        }
+
+        .contact-box h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #909aaa;
+            margin-bottom: 30px;
+        }
+
+        .contact-data {
+            margin-top: 25px;
+
+            color: #a8b1c0;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            border-top: 1px solid #202838;
+
+            color: #737e8f;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                max-width: 700px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .menu {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .developer-card {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .skills-grid,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .button {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         MENÚ
+    ========================= -->
+
+    <header>
+
+        <nav>
+
+            <a href="#inicio" class="logo">
+                JA.
+            </a>
+
+            <ul class="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         INICIO
+    ========================= -->
+
+    <main id="inicio">
+
+        <div class="hero">
+
+            <div class="hero-text">
+
+                <div class="hello">
+                    Hola, soy
+                </div>
+
+                <h1>
+                    Jesús <span>Almandoz</span>
+                </h1>
+
+                <h2>
+                    Estudiante de Desarrollo de Aplicaciones Multiplataforma
+                </h2>
+
+                <p>
+                    Soy estudiante de segundo curso de DAM y me interesa
+                    especialmente el desarrollo de software, las aplicaciones
+                    y las nuevas tecnologías. Me gusta aprender creando
+                    proyectos y mejorar mis conocimientos de programación.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#proyectos" class="button primary">
+                        Ver proyectos
+                    </a>
+
+                    <a href="#contacto" class="button secondary">
+                        Contactar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="developer-card">
+
+                <div class="profile-circle">
+                    JA
+                </div>
+
+                <h3>Jesús Almandoz</h3>
+
+                <div class="course">
+                    DAM · 2º Curso
+                </div>
+
+                <div class="card-info">
+
+                    <div>
+                        <span>Formación</span>
+                        <span>DAM</span>
+                    </div>
+
+                    <div>
+                        <span>Especialidad</span>
+                        <span>Software</span>
+                    </div>
+
+                    <div>
+                        <span>Lenguaje principal</span>
+                        <span>Java</span>
+                    </div>
+
+                    <div>
+                        <span>Ubicación</span>
+                        <span>España</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SOBRE MÍ
+        ========================= -->
+
+        <section id="sobre-mi">
+
+            <div class="section-title">
+
+                <small>01 — SOBRE MÍ</small>
+
+                <h2>Conociéndome un poco</h2>
+
+                <p>
+                    Estudiante y apasionado por el mundo del desarrollo.
+                </p>
+
+            </div>
+
+
+            <div class="about">
+
+                <div class="about-text">
+
+                    <p>
+                        Actualmente estoy cursando <strong>segundo de
+                        Desarrollo de Aplicaciones Multiplataforma</strong>.
+                        Durante estos años he aprendido diferentes lenguajes
+                        y herramientas relacionadas con el desarrollo de
+                        software.
+                    </p>
+
+                    <p>
+                        Me interesa especialmente la programación orientada
+                        a objetos, el desarrollo de aplicaciones y el diseño
+                        de sistemas.
+                    </p>
+
+                    <p>
+                        Mi objetivo es seguir adquiriendo experiencia y
+                        conocimientos para poder trabajar como desarrollador
+                        de software en el futuro.
+                    </p>
+
+                </div>
+
+
+                <div class="education">
+
+                    <h3>Formación</h3>
+
+                    <div class="education-item">
+
+                        <h4>Desarrollo de Aplicaciones Multiplataforma</h4>
+
+                        <p>
+                            Segundo curso · Actualmente
+                        </p>
+
+                    </div>
+
+                    <div class="education-item">
+
+                        <h4>Programación</h4>
+
+                        <p>
+                            Java · Programación orientada a objetos ·
+                            Estructuras de datos
+                        </p>
+
+                    </div>
+
+                    <div class="education-item">
+
+                        <h4>Bases de datos</h4>
+
+                        <p>
+                            SQL · Diseño y gestión de bases de datos
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HABILIDADES
+        ========================= -->
+
+        <div class="skills" id="habilidades">
+
+            <section class="skills-container">
+
+                <div class="section-title">
+
+                    <small>02 — HABILIDADES</small>
+
+                    <h2>Tecnologías</h2>
+
+                    <p>
+                        Algunas de las tecnologías que he aprendido durante
+                        mis estudios.
+                    </p>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <div class="skill">
+
+                        <div class="skill-icon">☕</div>
+
+                        <h3>Java</h3>
+
+                        <p>
+                            Programación orientada a objetos y desarrollo
+                            de aplicaciones.
+                        </p>
+
+                        <div class="skill-level">
+                            <span style="width: 85%;"></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-icon">🌐</div>
+
+                        <h3>HTML & CSS</h3>
+
+                        <p>
+                            Creación y diseño de páginas web responsive.
+                        </p>
+
+                        <div class="skill-level">
+                            <span style="width: 80%;"></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-icon">🗄️</div>
+
+                        <h3>SQL</h3>
+
+                        <p>
+                            Creación de tablas, consultas y gestión de datos.
+                        </p>
+
+                        <div class="skill-level">
+                            <span style="width: 75%;"></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-icon">🐙</div>
+
+                        <h3>Git</h3>
+
+                        <p>
+                            Control de versiones y trabajo con repositorios.
+                        </p>
+
+                        <div class="skill-level">
+                            <span style="width: 70%;"></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-icon">🖥️</div>
+
+                        <h3>JavaScript</h3>
+
+                        <p>
+                            Programación para añadir interacción a páginas
+                            web.
+                        </p>
+
+                        <div class="skill-level">
+                            <span style="width: 65%;"></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-icon">📱</div>
+
+                        <h3>Android</h3>
+
+                        <p>
+                            Conceptos básicos de desarrollo de aplicaciones
+                            móviles.
+                        </p>
+
+                        <div class="skill-level">
+                            <span style="width: 60%;"></span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =========================
+             PROYECTOS
+        ========================= -->
+
+        <section id="proyectos">
+
+            <div class="section-title">
+
+                <small>03 — PROYECTOS</small>
+
+                <h2>Trabajos realizados</h2>
+
+                <p>
+                    Algunos proyectos desarrollados durante mi formación.
+                </p>
+
+            </div>
+
+
+            <div class="projects">
+
+
+                <article class="project">
+
+                    <div class="project-image">
+                        🛒
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>ShopManager</h3>
+
+                        <p>
+                            Aplicación para gestionar los productos,
+                            clientes y pedidos de una pequeña tienda.
+                            Permite añadir, modificar y eliminar productos
+                            y consultar los pedidos realizados.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Maven</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-image">
+                        📚
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>Library Manager</h3>
+
+                        <p>
+                            Sistema de gestión de una biblioteca que permite
+                            controlar libros, usuarios y préstamos mediante
+                            una interfaz sencilla.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">POO</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-image">
+                        🚌
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>CityBus</h3>
+
+                        <p>
+                            Aplicación web ficticia para consultar líneas de
+                            autobús, horarios y diferentes paradas de una
+                            ciudad.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-image">
+                        🎮
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>GameScore</h3>
+
+                        <p>
+                            Aplicación para registrar jugadores y almacenar
+                            las puntuaciones obtenidas en diferentes juegos.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Git</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <section id="contacto" class="contact">
+
+            <div class="section-title">
+
+                <small>04 — CONTACTO</small>
+
+                <h2>¿Hablamos?</h2>
+
+                <p>
+                    Puedes contactar conmigo para cualquier consulta.
+                </p>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <h2>¡Gracias por visitar mi portfolio!</h2>
+
+                <p>
+                    Si quieres conocer más sobre mi formación, mis
+                    conocimientos o mis proyectos, puedes contactar conmigo.
+                </p>
+
+                <a
+                    href="mailto:jesus.almandoz@example.com"
+                    class="button primary"
+                >
+                    Enviar un correo
+                </a>
+
+                <div class="contact-data">
+                    jesusalmandozz@gmail.com
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <footer>
+    </footer>
+
+
+</body>
+</html>
